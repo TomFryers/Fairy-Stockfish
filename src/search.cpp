@@ -1147,10 +1147,6 @@ moves_loop: // When in check, search starts from here
                   && lmrDepth < 1
                   && captureHistory[movedPiece][to_sq(move)][type_of(pos.piece_on(to_sq(move)))] < 0)
                   continue;
-
-              // See based pruning
-              if (!pos.see_ge(move, Value(-221 - 120 * pos.captures_to_hand()) * depth)) // (~25 Elo)
-                  continue;
           }
       }
 
