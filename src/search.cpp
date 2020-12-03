@@ -1135,10 +1135,6 @@ moves_loop: // When in check, search starts from here
                     + (*contHist[3])[history_slot(movedPiece)][to_sq(move)]
                     + (*contHist[5])[history_slot(movedPiece)][to_sq(move)] / 2 < 27376)
                   continue;
-
-              // Prune moves with negative SEE (~20 Elo)
-              if (!pos.see_ge(move, Value(-(29 - std::min(lmrDepth, 18) + 10 * !!pos.capture_the_flag_piece()) * lmrDepth * lmrDepth)))
-                  continue;
           }
           else if (!pos.must_capture())
           {
